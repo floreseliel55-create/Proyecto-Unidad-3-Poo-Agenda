@@ -4,10 +4,11 @@ public class Agenda {
 
     private ArrayList<Contacto> listaContacto;
 
-    public Agenda(ArrayList<Contacto> listaContacto){
-        this.listaContacto = listaContacto;
+    public Agenda(){
+        listaContacto = new ArrayList<Contacto>();
     }
-    
+
+
 
 
     
