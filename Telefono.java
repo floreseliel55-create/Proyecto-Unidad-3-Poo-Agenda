@@ -6,9 +6,11 @@ public class Telefono {
 
     //Agregué el constructor - Carlos
     public Telefono (char tipoTelefono, String clavePais, String numeroTelefonico){
+
         this.tipoTelefono = tipoTelefono;
         this.clavePais = clavePais;
         this.numeroTelefonico = numeroTelefonico;
+        
     }
 
     //Agregué los getters y setters - Carlos

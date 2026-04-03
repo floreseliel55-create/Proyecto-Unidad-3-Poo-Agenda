@@ -31,11 +31,13 @@ public class Contacto extends Persona{
     }
     //Metodo para devolver todos los telefonos de un tipo dado (M o F) - Gael
     public ArrayList<Telefono> getTelefonosPorTipo(char tipo){
+
         ArrayList<Telefono> resultado = new ArrayList<>();
-    char t = Character.toUpperCase(tipo);
-    for (Telefono tel : listaTelefonos) {
-        if (tel.getTipo() == t) resultado.add(tel);
-        }
+        char t = Character.toUpperCase(tipo);
+
+        for (Telefono tel : listaTelefonos) {
+            if (tel.getTipoTelefono() == t) resultado.add(tel);
+            }
         return resultado;
     }
     @Override
