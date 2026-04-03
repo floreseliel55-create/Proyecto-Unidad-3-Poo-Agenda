@@ -1,0 +1,24 @@
+
+                                ORGANIZACION DE TAREAS PARA EL PROYECTO:
+
+ Cada uno debe tomar algo a realizar de esta lista de cosas, (las que alcances a hacer en 2 horas)
+ y poner tu nombre al lado..
+ Se deben realizar las tareas como nos la pide el pdf de barron. pasé la imagen en el discord.
+
+                                    REGLAS:
+    COMENTAR EL CODIGO
+    SABER EXPLICAR EL CODIGO QUE HICISTE
+    SEGUIR REGLAS DE JAVA PARA NOMBRAR VARIABLES, CLASES, MÉTODOS, ETC..
+    AL GUARDAR LOS CAMBIOS PARA SUBIRLO A GITHUB PONER UN COMENTARIO DE LO QUE SE HIZO Y QUIEN LO HIZO EN ESE COMMIT EJEMPLO: "Cree la clase persona con todos sus atributos - Eliel" etc..
+    AÑADIR UN TOSTRING A CADA CLASE PARA PODER IMPRIMIR LOS OBJETOS DE MANERA LEGIBLE
+    USTEDES PUEDEN AÑADIR TAREAS QUE VEAN QUE SE OCUPEN Y NO ESTEN EN LA LISTA
+    AL FINAL CADA UNO DEBE CHECAR LO QUE HICIERON LOS DEMAS.
+
+                                    TAREAS A REALIZAR:
+ 
+    Crear Clase persona como sale en el pdf de barron - Eliel
+    Crear la Clase Contacto que deriva de persona y añade (correo, lista de telefonos<<ArrayList>>), métodos: agregarTelefono(), eliminarTelefono(), agregarCorreo() - Sin asignar
+    Crear la Clase telefono con tipo (móvil/fijo) clave país, número, getters/setters  - Sin asignar
+    Crear clase Agenda con: lista de contactos (ArrayList<Contacto>) métodos:agregarContacto(),eliminarContacto(),buscarContacto(),mostrarContactos() - Sin asignar
+    Crear clase Principal con el método main para probar las demás clases - Sin asignar
+    Crear un menú para la clase Principal con opciones para agregar, eliminar, buscar y mostrar contactos - Sin asignar
