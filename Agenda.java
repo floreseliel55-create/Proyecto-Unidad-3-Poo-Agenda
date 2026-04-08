@@ -30,8 +30,30 @@ public class Agenda {
         }
         return resultado;
     }
-
-
+    // e) Metodo para agregar telefono a una persona - Gael
+    public boolean agregarTelefonoAContacto(String alias, Telefono tel){
+        for (Contacto contacto : listaContacto) {
+            if (contacto.getAlias().equals(alias)) {
+                contacto.agregarTelefono(tel);
+                System.out.println("Telefono agregado al contacto " + alias);
+                return true;
+            }
+        }
+        System.out.println("No se encontró el contacto con alias " + alias);
+        return false;
+    } 
+    // f) Metodo para eliminar un contacto por su alias - Gael
+    public boolean eliminarContactoPorAlias(String alias){
+        for (Contacto contacto : listaContacto) {
+            if (contacto.getAlias().equals(alias)) {
+                listaContacto.remove(contacto);
+                System.out.println("Contacto con alias " + alias + " eliminado");
+                return true;
+            }
+        }
+        System.out.println("No se encontró el contacto con alias " + alias);
+        return false;
+    }
 
 
     
