@@ -42,6 +42,6 @@ public class Telefono {
         @Override
     public String toString() {
         
-        return "Telefono [Tipo de télefono =" + tipoTelefono + ", clave país=" + clavePais + ", número telefónico=" + numeroTelefonico"]";
+        return "Telefono [Tipo de télefono =" + tipoTelefono + ", clave país=" + clavePais + ", número telefónico=" + numeroTelefonico + "]";
     }
 }

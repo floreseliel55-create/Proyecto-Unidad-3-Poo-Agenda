@@ -32,25 +32,30 @@ public class Agenda {
         }
         return resultado;
     }
-    // Metodo que agrega una persojna a la agenda - Eliel
-    public void agregarPersona(Contacto c){
-        this.listaContacto.add(c);
-    }
-    // Metodo que busca una persona por su alias y devuelve el contacto - Eliel
-    public Contacto buscarContacto(String alias){
-        for(Contacto c: listaContacto){
-            if(c.getAlias().equals(alias)){
-                return c;
-            }
-            else{
-                System.out.println("No se encontro una persona con ese alias ");
+    // e) Metodo para agregar telefono a una persona - Gael
+    public boolean agregarTelefonoAContacto(String alias, Telefono tel){
+        for (Contacto contacto : listaContacto) {
+            if (contacto.getAlias().equals(alias)) {
+                contacto.agregarTelefono(tel);
+                System.out.println("Telefono agregado al contacto " + alias);
+                return true;
             }
         }
-        return null;
+        System.out.println("No se encontró el contacto con alias " + alias);
+        return false;
+    } 
+    // f) Metodo para eliminar un contacto por su alias - Gael
+    public boolean eliminarContactoPorAlias(String alias){
+        for (Contacto contacto : listaContacto) {
+            if (contacto.getAlias().equals(alias)) {
+                listaContacto.remove(contacto);
+                System.out.println("Contacto con alias " + alias + " eliminado");
+                return true;
+            }
+        }
+        System.out.println("No se encontró el contacto con alias " + alias);
+        return false;
     }
-    // 
-
-
 
 
     
