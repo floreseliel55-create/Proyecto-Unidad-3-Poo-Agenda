@@ -16,9 +16,6 @@ public class Contacto extends Persona{
     public ArrayList<String> getCorreo() {
         return correo;
     }
-    public void setCorreo(ArrayList<String> correo) {
-        this.correo = correo;
-    }
     public ArrayList<Telefono> getListaTelefonos() {
         return listaTelefonos;
     }
@@ -27,10 +24,16 @@ public class Contacto extends Persona{
         this.listaTelefonos.add(tel);
     }
     //Metodo para eliminar un telefono de un contacto - Gael
-    public void eliminarTelefono(Telefono tel){
-        this.listaTelefonos.remove(tel);
+    public boolean eliminarTelefono(String numero) {
+    for (int i = 0; i < listaTelefonos.size(); i++) {
+        if (listaTelefonos.get(i).getNumeroTelefonico().equals(numero)) {
+            listaTelefonos.remove(i);
+            return true;
+        }
     }
-    //Metodo para devolver todos los telefonos de un tipo dado (M o F) - Gael
+    return false;
+}
+    // Metodo para devolver todos los telefonos de un tipo dado (M o F) - Gael
     public ArrayList<Telefono> getTelefonosPorTipo(char tipo){
 
         ArrayList<Telefono> resultado = new ArrayList<>();

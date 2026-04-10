@@ -7,14 +7,23 @@ public class Agenda {
     public Agenda(){
         listaContacto = new ArrayList<Contacto>();
     }
-    // Metodo toString para mostrar la agenda - Eliel
+    // a) Metodo toString para mostrar la agenda - Eliel
     @Override
     public String toString() {
-        return "Agenda{" +
-                "listaContacto=" + listaContacto +
-                '}';
+        if (listaContacto.isEmpty()) {
+            return "La agenda está vacía.";
+        }
+
+        String resultado = "=== AGENDA ===\n";
+
+        for (int i = 0; i < listaContacto.size(); i++) {
+            resultado += listaContacto.get(i).toString() + "\n";
+            resultado += "----------------------\n";
+        }
+
+        return resultado;
     }
-    // Metodo que me devuelve una lista de contactos que tienen al menos un telefono del tipo dado (M o F) - Gael
+    // b) Metodo que me devuelve una lista de contactos que tienen al menos un telefono del tipo dado (M o F) - Eliel
     public ArrayList<Contacto> getContactosPorTipoTelefono(char tipo){
         // arreglo donde guardo los contactos que cumplen la condición
         ArrayList<Contacto> resultado = new ArrayList<>();
@@ -31,6 +40,26 @@ public class Agenda {
             }
         }
         return resultado;
+    }
+    // c) Metodo para agregar una persona a la agenda, evitando duplicados por alias - Eliel
+    public boolean agregarContacto(Contacto c){
+    for (int i = 0; i < listaContacto.size(); i++) {
+        if (listaContacto.get(i).getAlias().equalsIgnoreCase(c.getAlias())) {
+            return false; // evitar duplicados
+        }
+    }
+    listaContacto.add(c);
+    return true;
+    }
+    // d) Metodo para agregar correo a una persona 
+    public boolean agregarCorreoAContacto(String alias, String correo){
+    for (int i = 0; i < listaContacto.size(); i++) {
+        if (listaContacto.get(i).getAlias().equalsIgnoreCase(alias)) {
+            listaContacto.get(i).agregarCorreo(correo);
+            return true;
+        }
+    }
+    return false;
     }
     // e) Metodo para agregar telefono a una persona - Gael
     public boolean agregarTelefonoAContacto(String alias, Telefono tel){
@@ -56,6 +85,34 @@ public class Agenda {
         System.out.println("No se encontró el contacto con alias " + alias);
         return false;
     }
+    // g) Metodo para eliminar un telefono de un contacto dado su alias y el numero de telefono - Carlos
+    public boolean eliminarTelefonoDeContacto(String alias, String numero) {
+        for (Contacto contacto : listaContacto) {
+            if (contacto.getAlias().equals(alias)) {
+                boolean eliminado = contacto.eliminarTelefono(numero);
+                if (eliminado) {
+                    System.out.println("Teléfono " + numero + " eliminado del contacto " + alias);
+                } else {
+                    System.out.println("No se encontró el teléfono " + numero + " en el contacto " + alias);
+                }
+                return eliminado;
+            }
+        }
+        System.out.println("No se encontró el contacto con alias " + alias);
+        return false;
+    }
+    // h) Metodo para consultar a una persona por nombre o alias
+    public Contacto consultarPersona(String dato){
+    for (int i = 0; i < listaContacto.size(); i++) {
+        Contacto c = listaContacto.get(i);
+
+        if (c.getNombre().equalsIgnoreCase(dato) ||
+            c.getAlias().equalsIgnoreCase(dato)) {
+            return c;
+        }
+    }
+    return null;
+}
 
 
     
