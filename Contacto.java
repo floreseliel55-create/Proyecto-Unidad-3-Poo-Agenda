@@ -3,19 +3,20 @@ import java.util.ArrayList;
 
 public class Contacto extends Persona{
     // Atributos de clase con valores por defecto - Gael
-    private String correo="Sin correo";
+    private ArrayList<String> correo;
     private ArrayList<Telefono> listaTelefonos;
     // Constructor de la clase - Gael
     public Contacto(String nombre, String apellido, char sexo, String alias, String correo) {
         super(nombre, apellido, sexo, alias);
-        this.correo = correo;
+        this.correo = new ArrayList<>();
+        this.correo.add(correo);
         this.listaTelefonos = new ArrayList<Telefono>();
     }
     // Metodos GET y SET - Gael
-    public String getCorreo() {
+    public ArrayList<String> getCorreo() {
         return correo;
     }
-    public void setCorreo(String correo) {
+    public void setCorreo(ArrayList<String> correo) {
         this.correo = correo;
     }
     public ArrayList<Telefono> getListaTelefonos() {
@@ -50,5 +51,9 @@ public class Contacto extends Persona{
                 ", listaTelefonos=" + listaTelefonos +
                 '}';
     }
-    
+    // Metodo para poner un correo mas a una persona - Eliel
+    public void agregarCorreo(String correo){
+        this.correo.add(correo);
+    }
+
 }

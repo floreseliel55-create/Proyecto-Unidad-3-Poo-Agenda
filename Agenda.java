@@ -7,6 +7,8 @@ public class Agenda {
     public Agenda(){
         listaContacto = new ArrayList<Contacto>();
     }
+    // Metodo toString para mostrar la agenda - Eliel
+    @Override
     public String toString() {
         return "Agenda{" +
                 "listaContacto=" + listaContacto +
@@ -30,6 +32,23 @@ public class Agenda {
         }
         return resultado;
     }
+    // Metodo que agrega una persojna a la agenda - Eliel
+    public void agregarPersona(Contacto c){
+        this.listaContacto.add(c);
+    }
+    // Metodo que busca una persona por su alias y devuelve el contacto - Eliel
+    public Contacto buscarContacto(String alias){
+        for(Contacto c: listaContacto){
+            if(c.getAlias().equals(alias)){
+                return c;
+            }
+            else{
+                System.out.println("No se encontro una persona con ese alias ");
+            }
+        }
+        return null;
+    }
+    // 
 
 
 
