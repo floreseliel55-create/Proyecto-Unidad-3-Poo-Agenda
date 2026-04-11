@@ -24,14 +24,16 @@ public class Principal {
             sc.nextLine(); // limpiar buffer
 
             switch (opcion) {
+                // Imprime Metodo toString para mostrar la agenda 
             case 1:
             System.out.println(agenda);
             break;
-
+                // Imprime los contactos que tienen al menos un telefono del tipo dado (M o F)
             case 2:
             System.out.print("Tipo (M/F): ");
+            // se pone charAt(0) para tomar solo el primer caracter si es que se ingresa algo mas
             char tipo = sc.nextLine().charAt(0);
-
+            // recorro la lista de contactos que cumplen la condición y los imprimo    
             for (Contacto c : agenda.getContactosPorTipoTelefono(tipo)) {
                 System.out.println(c);
             }
@@ -53,7 +55,7 @@ public class Principal {
             String correo = sc.nextLine();
 
             Contacto nuevo = new Contacto(nombre, apellido, sexo, alias, correo);
-
+            // Si agenda.agregarContacto(nuevo) devuelve true, se agregó correctamente, si devuelve false es porque el alias ya existe
             if (agenda.agregarContacto(nuevo)) {
                 System.out.println("Contacto agregado");
             } else {

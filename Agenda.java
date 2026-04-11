@@ -15,8 +15,9 @@ public class Agenda {
         }
 
         String resultado = "=== AGENDA ===\n";
-
+        // Recorro la lista de contactos y voy concatenando su representación en el resultado
         for (int i = 0; i < listaContacto.size(); i++) {
+            // añade al "=== AGENDA ===\n" el toString de cada contacto con separaciones
             resultado += listaContacto.get(i).toString() + "\n";
             resultado += "----------------------\n";
         }
@@ -29,8 +30,9 @@ public class Agenda {
         ArrayList<Contacto> resultado = new ArrayList<>();
         // convierto el tipo a mayúscula para evitar problemas de comparación
         char t = Character.toUpperCase(tipo);
-        // Recorro el arreglo de contactos y su lista
+        // Recorro la lista de contactos
         for (Contacto contacto : listaContacto) {
+            // Recorro la lista de teléfonos de cada contacto
             for (Telefono tel : contacto.getListaTelefonos()) {
                 // si el tipo de telefono coincide con el tipo dado, lo agrego al array y salgo para evitar agregar el mismo contacto varias veces
                 if (tel.getTipoTelefono() == t) {
@@ -44,8 +46,9 @@ public class Agenda {
     // c) Metodo para agregar una persona a la agenda, evitando duplicados por alias - Eliel
     public boolean agregarContacto(Contacto c){
     for (int i = 0; i < listaContacto.size(); i++) {
+        // comparo el alias del contacto a agregar con los alias de los contactos ya en la agenda, ignorando mayúsculas y minúsculas
         if (listaContacto.get(i).getAlias().equalsIgnoreCase(c.getAlias())) {
-            return false; // evitar duplicados
+            return false; // evita duplicados
         }
     }
     listaContacto.add(c);
@@ -89,6 +92,7 @@ public class Agenda {
     public boolean eliminarTelefonoDeContacto(String alias, String numero) {
         for (Contacto contacto : listaContacto) {
             if (contacto.getAlias().equals(alias)) {
+                // esta función devuelve true si se eliminó el teléfono y false si no se encontró el teléfono en el contacto
                 boolean eliminado = contacto.eliminarTelefono(numero);
                 if (eliminado) {
                     System.out.println("Teléfono " + numero + " eliminado del contacto " + alias);
