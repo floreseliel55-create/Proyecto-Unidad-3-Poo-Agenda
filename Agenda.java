@@ -67,7 +67,7 @@ public class Agenda {
     // e) Metodo para agregar telefono a una persona - Gael
     public boolean agregarTelefonoAContacto(String alias, Telefono tel){
         for (Contacto contacto : listaContacto) {
-            if (contacto.getAlias().equals(alias)) {
+            if (contacto.getAlias().equalsIgnoreCase(alias)) {
                 contacto.agregarTelefono(tel);
                 System.out.println("Telefono agregado al contacto " + alias);
                 return true;
@@ -79,7 +79,7 @@ public class Agenda {
     // f) Metodo para eliminar un contacto por su alias - Gael
     public boolean eliminarContactoPorAlias(String alias){
         for (Contacto contacto : listaContacto) {
-            if (contacto.getAlias().equals(alias)) {
+            if (contacto.getAlias().equalsIgnoreCase(alias)) {
                 listaContacto.remove(contacto);
                 System.out.println("Contacto con alias " + alias + " eliminado");
                 return true;
@@ -91,7 +91,7 @@ public class Agenda {
     // g) Metodo para eliminar un telefono de un contacto dado su alias y el numero de telefono - Carlos
     public boolean eliminarTelefonoDeContacto(String alias, String numero) {
         for (Contacto contacto : listaContacto) {
-            if (contacto.getAlias().equals(alias)) {
+            if (contacto.getAlias().equalsIgnoreCase(alias)) {
                 // esta función devuelve true si se eliminó el teléfono y false si no se encontró el teléfono en el contacto
                 boolean eliminado = contacto.eliminarTelefono(numero);
                 if (eliminado) {

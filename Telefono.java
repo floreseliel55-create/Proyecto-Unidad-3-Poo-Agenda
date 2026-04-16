@@ -7,7 +7,7 @@ public class Telefono {
     //Agregué el constructor - Carlos
     public Telefono (char tipoTelefono, String clavePais, String numeroTelefonico){
 
-        this.tipoTelefono = tipoTelefono;
+        this.tipoTelefono = Character.toUpperCase(tipoTelefono);
         this.clavePais = clavePais;
         this.numeroTelefonico = numeroTelefonico;
         
@@ -19,7 +19,7 @@ public class Telefono {
     }
 
     public void setTipoTelefono(char tipoTelefono) {
-        this.tipoTelefono = tipoTelefono;
+        this.tipoTelefono = Character.toUpperCase(tipoTelefono);
     }
 
     public String getClavePais() {
