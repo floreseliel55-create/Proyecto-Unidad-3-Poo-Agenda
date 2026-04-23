@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Principal {
@@ -5,6 +6,29 @@ public class Principal {
 
         Scanner sc = new Scanner(System.in);
         Agenda agenda = new Agenda();
+
+// CONTACTOS DE PRUEBA
+Contacto c1 = new Contacto("Juan", "Perez", 'M', "juanp", "juan@gmail.com");
+c1.agregarTelefono(new Telefono('M', "+52", "6671234567"));
+
+Contacto c2 = new Contacto("Maria", "Lopez", 'F', "marial", "maria@hotmail.com");
+c2.agregarTelefono(new Telefono('F', "+52", "6679876543"));
+
+Contacto c3 = new Contacto("Carlos", "Ramirez", 'M', "carlosr", "carlos@gmail.com");
+c3.agregarTelefono(new Telefono('M', "+52", "6671112233"));
+
+Contacto c4 = new Contacto("Ana", "Torres", 'F', "anat", "ana@yahoo.com");
+c4.agregarTelefono(new Telefono('F', "+52", "6674445566"));
+
+Contacto c5 = new Contacto("Luis", "Gomez", 'M', "luisg", "luis@gmail.com");
+c5.agregarTelefono(new Telefono('M', "+52", "6677778899"));
+
+// Agregar a la agenda
+agenda.agregarContacto(c1);
+agenda.agregarContacto(c2);
+agenda.agregarContacto(c3);
+agenda.agregarContacto(c4);
+agenda.agregarContacto(c5);
 
         int opcion;
 
@@ -59,7 +83,7 @@ public class Principal {
             if (agenda.agregarContacto(nuevo)) {
                 System.out.println("Contacto agregado");
             } else {
-            System.out.println("Alias ya existe");
+            System.out.println("Contacto ya existe");
             }
             break;
             case 4:
@@ -124,12 +148,14 @@ public class Principal {
     System.out.print("Nombre o alias: ");
     String dato = sc.nextLine();
 
-    Contacto c = agenda.consultarPersona(dato);
+    ArrayList<Contacto> resultados = agenda.consultarPersona(dato);
 
-    if (c != null) {
-        System.out.println(c);
-    } else {
+    if (resultados.isEmpty()) {
         System.out.println("No encontrado");
+    } else {
+        for (Contacto c : resultados) {
+            System.out.println(c);
+        }
     }
     break;
     case 0:

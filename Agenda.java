@@ -78,9 +78,9 @@ public class Agenda {
     } 
     // f) Metodo para eliminar un contacto por su alias - Gael
     public boolean eliminarContactoPorAlias(String alias){
-        for (Contacto contacto : listaContacto) {
-            if (contacto.getAlias().equalsIgnoreCase(alias)) {
-                listaContacto.remove(contacto);
+        for (int i = 0; i < listaContacto.size(); i++) {
+        if (listaContacto.get(i).getAlias().equalsIgnoreCase(alias)) {
+            listaContacto.remove(i);
                 System.out.println("Contacto con alias " + alias + " eliminado");
                 return true;
             }
@@ -106,18 +106,17 @@ public class Agenda {
         return false;
     }
     // h) Metodo para consultar a una persona por nombre o alias
-    public Contacto consultarPersona(String dato){
-    for (int i = 0; i < listaContacto.size(); i++) {
-        Contacto c = listaContacto.get(i);
+    public ArrayList<Contacto> consultarPersona(String dato){
+    ArrayList<Contacto> resultados = new ArrayList<>();
 
-        if (c.getNombre().equalsIgnoreCase(dato) ||
-            c.getAlias().equalsIgnoreCase(dato)) {
-            return c;
+    for (Contacto c : listaContacto) {
+        if (c.getNombre().toLowerCase().contains(dato.toLowerCase()) ||
+            c.getAlias().toLowerCase().contains(dato.toLowerCase())) {
+            resultados.add(c);
         }
     }
-    return null;
+
+    return resultados;
 }
 
-
-    
 }

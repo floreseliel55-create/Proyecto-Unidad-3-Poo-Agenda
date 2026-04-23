@@ -39,6 +39,6 @@ public class Persona{
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", sexo=" + sexo + "]" + " alias=" + alias;
+        return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", sexo=" + sexo + ", alias=" + alias + "]";
     }
 }
