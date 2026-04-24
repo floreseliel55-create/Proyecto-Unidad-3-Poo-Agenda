@@ -14,15 +14,16 @@ public class Agenda {
             return "La agenda está vacía.";
         }
 
-        String resultado = "=== AGENDA ===\n";
+        StringBuffer resultado = new StringBuffer("=== AGENDA ===\n");
         // Recorro la lista de contactos y voy concatenando su representación en el resultado
         for (int i = 0; i < listaContacto.size(); i++) {
             // añade al "=== AGENDA ===\n" el toString de cada contacto con separaciones
-            resultado += listaContacto.get(i).toString() + "\n";
-            resultado += "----------------------\n";
+            resultado.append(listaContacto.get(i).toString());
+            resultado.append("\n");
+            resultado.append("----------------------\n");
         }
 
-        return resultado;
+        return resultado.toString();
     }
     // b) Metodo que me devuelve una lista de contactos que tienen al menos un telefono del tipo dado (M o F) - Eliel
     public ArrayList<Contacto> getContactosPorTipoTelefono(char tipo){
