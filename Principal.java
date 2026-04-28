@@ -1,3 +1,12 @@
+// Equipo:
+// Sergio Eliel Flores Urquidy
+// Gael Fernando Aguirre Soto
+// Carlos Eduardo Chairez Audelo
+
+// Programación orientada a Objetos 
+// Maria Lucia Barron Estrada
+// Programa de la Agenda
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -42,10 +51,11 @@ agenda.agregarContacto(c5);
             System.out.println("6. Eliminar contacto");
             System.out.println("7. Eliminar teléfono");
             System.out.println("8. Consultar persona");
+            System.out.println("9. Ordenar agenda");
             System.out.println("0. Salir");
 
             opcion = sc.nextInt();
-            sc.nextLine(); // limpiar buffer
+            sc.nextLine(); 
 
             switch (opcion) {
                 // Imprime Metodo toString para mostrar la agenda 
@@ -157,6 +167,12 @@ agenda.agregarContacto(c5);
             System.out.println(c);
         }
     }
+    break;
+    case 9:
+    System.out.println("Ordenando agenda...");
+    agenda.ordenarAgenda();
+    System.out.println("Agenda ordenada.");
+    System.out.println(agenda);
     break;
     case 0:
     System.out.println("Saliendo...");

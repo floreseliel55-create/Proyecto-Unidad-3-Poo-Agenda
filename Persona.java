@@ -1,9 +1,17 @@
+// Sergio Eliel Flores Urquidy
+
+// Programación orientada a Objetos 
+// Maria Lucia Barron Estrada
+// Programa de la Agenda
+
+// Clase persona con 4 atributos para definir un contacto solo tiene los metodos get,set,toString
+//  y un constructor para ser invocado cuando se inicialice.
 public class Persona{
     // Atributos de clase con valores por defecto
-    private String nombre="Sin nombre";
-    private String apellido="Sin apellido";
-    private char sexo='M';
-    private String alias="Sin alias";
+    private String nombre;
+    private String apellido;
+    private char sexo;
+    private String alias;
     // Constructor de la clase
     public Persona(String nombre, String apellido, char sexo, String alias){
        this.nombre = nombre;
@@ -38,7 +46,6 @@ public class Persona{
     }
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", sexo=" + sexo + ", alias=" + alias + "]";
+        return nombre+","+apellido+","+sexo+","+alias;
     }
 }

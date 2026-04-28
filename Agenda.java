@@ -1,9 +1,19 @@
+// Sergio Eliel Flores Urquidy
+// Gael Fernando Aguirre Soto
+// Carlos Eduardo Chairez Audelo
+
+// Programación orientada a Objetos 
+// Maria Lucia Barron Estrada
+// Programa de la Agenda
+
+// La agenda controla todo lo que se puede hacer con los contactos 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Agenda {
 
     private ArrayList<Contacto> listaContacto;
-
+    
     public Agenda(){
         listaContacto = new ArrayList<Contacto>();
     }
@@ -119,5 +129,24 @@ public class Agenda {
 
     return resultados;
 }
+
+    // Metodo para Ordenar la agenda por nombre y apellido
+    public void ordenarAgenda(){
+        // Collection.sort aqui me pregunta que voy a comparar, le digo que voy a comparar de una 
+        // lista de contactos un contacto con otro llamados c1 y c2
+       Collections.sort(listaContacto, (c1, c2) -> {
+        // Entonces compara el nombre de c1 con el nombre de c2, y con el metodo compareToIgnoreCase
+        // ignora mayusculas y minusculas y eso compara en orden alfabetico 
+        // me devuelve un valor entero que se que si es negativo, significa que c1 va antes y si es positivo al reves
+    int resultado = c1.getNombre().compareToIgnoreCase(c2.getNombre());
+        // en caso de ser iguales entonces compara los apellidos, y hace lo mismo que con los nombres
+    if (resultado == 0) {
+        resultado = c1.getApellido().compareToIgnoreCase(c2.getApellido());
+        // si ambos son iguales, entonces devuelve 0, lo que significa que no hay un orden entre ellos
+    }
+
+    return resultado;
+});
+    }
 
 }

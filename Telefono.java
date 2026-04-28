@@ -1,12 +1,23 @@
+// Carlos Eduardo Chairez Audelo
+
+// Programación orientada a Objetos 
+// Maria Lucia Barron Estrada
+// Programa de la Agenda
+
+
+
 public class Telefono {
     //Agregué los atributos que se pedían de la clase - Carlos
     private char tipoTelefono;
     private String clavePais;
     private String numeroTelefonico;
-
     //Agregué el constructor - Carlos
     public Telefono (char tipoTelefono, String clavePais, String numeroTelefonico){
-
+        // quitar comprobaciones del constructor 
+        if (clavePais == null || !clavePais.matches("\\+?\\d{2}")) {
+            System.out.println("Clave de país inválida");
+            return;
+        }
         this.tipoTelefono = Character.toUpperCase(tipoTelefono);
         this.clavePais = clavePais;
         this.numeroTelefonico = numeroTelefonico;

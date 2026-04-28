@@ -1,4 +1,12 @@
-//Proyecto Agenda
+// Gael Fernando Aguirre Soto
+
+// Programación orientada a Objetos 
+// Maria Lucia Barron Estrada
+// Programa de la Agenda
+
+// Clase contacto del proyeto que deriva de persona y tiene 2 atributos de arraylists de correo 
+// y de lista de telefonos, asi como un constructor, metodos set y get y su tostring 
+// y unas validaciones
 import java.util.ArrayList;
 
 public class Contacto extends Persona{
@@ -26,6 +34,7 @@ public class Contacto extends Persona{
     }
     // Metodo para agregar un telefono a un contacto - Gael
     public void agregarTelefono(Telefono tel){
+
     String num = tel.getNumeroTelefonico();
 
     if (!esTelefonoValido(num)) {
@@ -53,17 +62,7 @@ public class Contacto extends Persona{
     }
     return false;
 }
-    // Metodo para devolver todos los telefonos de un tipo dado (M o F) - Gael
-    public ArrayList<Telefono> getTelefonosPorTipo(char tipo){
 
-        ArrayList<Telefono> resultado = new ArrayList<>();
-        char t = Character.toUpperCase(tipo);
-
-        for (Telefono tel : listaTelefonos) {
-            if (Character.toUpperCase(tel.getTipoTelefono()) == t) resultado.add(tel);
-            }
-        return resultado;
-    }
         // Metodo para validar un numero de telefono - Gael
     private boolean esTelefonoValido(String numero) {
     if (numero == null) return false;
@@ -81,14 +80,8 @@ public class Contacto extends Persona{
     return true;
 }
     @Override
-    public String toString() {        return "Contacto{" +
-                "nombre='" + getNombre() + '\'' +
-                ", apellido='" + getApellido() + '\'' +
-                ", sexo=" + getSexo() +
-                ", alias='" + getAlias() + '\'' +
-                ", correo='" + correo + '\'' +
-                ", listaTelefonos=" + listaTelefonos +
-                '}';
+    public String toString() {  return super.toString()+"," + correo + '\'' +"," + listaTelefonos +
+'}';
     }
     // Metodo para poner un correo mas a una persona - Eliel
     public void agregarCorreo(String correo){
