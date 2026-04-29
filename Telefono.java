@@ -4,7 +4,8 @@
 // Maria Lucia Barron Estrada
 // Programa de la Agenda
 
-// Clase Telefono con sus atributos, constructor, getters, setters y método toString.
+
+
 public class Telefono {
     //Agregué los atributos que se pedían de la clase - Carlos
     private char tipoTelefono;
@@ -20,6 +21,7 @@ public class Telefono {
         this.tipoTelefono = Character.toUpperCase(tipoTelefono);
         this.clavePais = clavePais;
         this.numeroTelefonico = numeroTelefonico;
+        
     }
 
     //Agregué los getters y setters - Carlos
@@ -51,6 +53,6 @@ public class Telefono {
         @Override
     public String toString() {
         
-        return "["+tipoTelefono + ", "+ clavePais +","+ numeroTelefonico + "]";
+        return "Telefono [Tipo de télefono =" + tipoTelefono + ", clave país=" + clavePais + ", número telefónico=" + numeroTelefonico + "]";
     }
 }
