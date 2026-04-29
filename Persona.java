@@ -48,6 +48,7 @@ public class Persona{
         return sexo;
     }
     public void setSexo(char sexo) {
+        // Valida que el sexo sea 'M' o 'F' utilizando la expresión regular
         if (regexSexo.matcher(String.valueOf(sexo)).matches()) {
             this.sexo = sexo;
         } else {

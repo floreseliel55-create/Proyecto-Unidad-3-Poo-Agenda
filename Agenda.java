@@ -65,7 +65,7 @@ public class Agenda {
     listaContacto.add(c);
     return true;
     }
-    // d) Metodo para agregar correo a una persona 
+    // d) Metodo para agregar correo a un Contacto existente
     public boolean agregarCorreoAContacto(String alias, String correo){
         for (int i = 0; i < listaContacto.size(); i++) {
             if (listaContacto.get(i).getAlias().equalsIgnoreCase(alias)) {

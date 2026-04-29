@@ -9,19 +9,17 @@ public class Principal {
         Scanner sc = new Scanner(System.in);
         Agenda agenda = new Agenda();
 
-        // Creación de contactos de prueba.
-        Contacto c1 = new Contacto("Juan", "Perez", 'M', "juanp", "juan@gmail.com");
-        Contacto c2 = new Contacto("Maria", "Lopez", 'F', "marial", "maria@hotmail.com");
-        Contacto c3 = new Contacto("Carlos", "Ramirez", 'M', "carlosr", "carlos@gmail.com");
-        Contacto c4 = new Contacto("Ana", "Torres", 'F', "anat", "ana@yahoo.com");
-        Contacto c5 = new Contacto("Luis", "Gomez", 'M', "luisg", "luis@gmail.com");
+        // Datos de contactos en arreglos.
+        String[] nombres   = {"Juan", "Maria", "Carlos", "Ana", "Luis"};
+        String[] apellidos = {"Perez", "Lopez", "Ramirez", "Torres", "Gomez"};
+        char[]   sexos     = {'M', 'F', 'M', 'F', 'M'};
+        String[] aliases   = {"juanp", "marial", "carlosr", "anat", "luisg"};
+        String[] correos   = {"juan@gmail.com", "maria@hotmail.com", "carlos@gmail.com", "ana@yahoo.com", "luis@gmail.com"};
 
         // Agregar contactos a la agenda.
-        agenda.agregarContacto(c1);
-        agenda.agregarContacto(c2);
-        agenda.agregarContacto(c3);
-        agenda.agregarContacto(c4);
-        agenda.agregarContacto(c5);
+        for (int i = 0; i < nombres.length; i++) {
+            agenda.agregarContacto(new Contacto(nombres[i], apellidos[i], sexos[i], aliases[i], correos[i]));
+        }
 
         // Agregar teléfonos a los contactos.
         agenda.agregarTelefonoAContacto("juanp", new Telefono('M', "+52", "6671234567"));
