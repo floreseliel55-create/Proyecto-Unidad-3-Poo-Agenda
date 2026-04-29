@@ -35,6 +35,78 @@ public class Agenda {
 
         return resultado.toString();
     }
+
+    // Metodo para agregar un telefono a un contacto - Gael
+    public void agregarTelefono(Telefono tel){
+
+    String num = tel.getNumeroTelefonico();
+
+    if (!esTelefonoValido(num)) {
+        System.out.println("Número inválido");
+        return;
+    }
+
+    // Evitar duplicados
+    for (Telefono t : listaTelefonos) {
+        if (t.getNumeroTelefonico().equals(num)) {
+            System.out.println("Número repetido");
+            return;
+        }
+    }
+
+    listaTelefonos.add(tel);
+}
+
+        //Metodo para eliminar un telefono de un contacto - Gael
+    public boolean eliminarTelefono(String numero) {
+    for (int i = 0; i < listaTelefonos.size(); i++) {
+        if (listaTelefonos.get(i).getNumeroTelefonico().equals(numero)) {
+            listaTelefonos.remove(i);
+            return true;
+        }
+    }
+    return false;
+}
+
+       // Metodo para validar un numero de telefono - Gael
+    private boolean esTelefonoValido(String numero) {
+    if (numero == null) return false;
+
+    // Debe tener exactamente 10 caracteres
+    if (numero.length() != 10) return false;
+
+    // Verificar que todos sean números
+    for (int i = 0; i < numero.length(); i++) {
+        if (!Character.isDigit(numero.charAt(i))) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+ // Metodo para poner un correo mas a una persona - Eliel
+    public void agregarCorreo(String correo){
+    if (esCorreoValido(correo)) {
+        if (!this.correo.contains(correo)) {
+            this.correo.add(correo);
+        }
+    } else {
+        System.out.println("Correo inválido");
+    }
+}
+    // Metodo para validar un correo - Gael
+    private boolean esCorreoValido(String correo) {
+    if (correo == null) return false;
+
+    // Debe tener @ y .
+    if (!correo.contains("@") || !correo.contains(".")) return false;
+
+    // No debe tener espacios
+    if (correo.contains(" ")) return false;
+
+    return true;
+}
     // b) Metodo que me devuelve una lista de contactos que tienen al menos un telefono del tipo dado (M o F) - Eliel
     public ArrayList<Contacto> getContactosPorTipoTelefono(char tipo){
         // arreglo donde guardo los contactos que cumplen la condición
