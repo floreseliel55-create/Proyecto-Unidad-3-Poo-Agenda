@@ -67,19 +67,26 @@ public class Agenda {
     }
     // d) Metodo para agregar correo a una persona 
     public boolean agregarCorreoAContacto(String alias, String correo){
-    for (int i = 0; i < listaContacto.size(); i++) {
-        if (listaContacto.get(i).getAlias().equalsIgnoreCase(alias)) {
-            listaContacto.get(i).agregarCorreo(correo);
-            return true;
+        for (int i = 0; i < listaContacto.size(); i++) {
+            if (listaContacto.get(i).getAlias().equalsIgnoreCase(alias)) {
+                listaContacto.get(i).setCorreo(correo);
+                return true;
+            }
         }
-    }
-    return false;
+        return false;
     }
     // e) Metodo para agregar telefono a una persona - Gael
     public boolean agregarTelefonoAContacto(String alias, Telefono tel){
         for (Contacto contacto : listaContacto) {
             if (contacto.getAlias().equalsIgnoreCase(alias)) {
-                contacto.agregarTelefono(tel);
+                String numero = tel.getNumeroTelefonico();
+                for (Telefono t : contacto.getListaTelefonos()) {
+                    if (t.getNumeroTelefonico().equals(numero)) {
+                        System.out.println("Número repetido");
+                        return false;
+                    }
+                }
+                contacto.getListaTelefonos().add(tel);
                 System.out.println("Telefono agregado al contacto " + alias);
                 return true;
             }
@@ -101,16 +108,18 @@ public class Agenda {
     }
     // g) Metodo para eliminar un telefono de un contacto dado su alias y el numero de telefono - Carlos
     public boolean eliminarTelefonoDeContacto(String alias, String numero) {
-        for (Contacto contacto : listaContacto) {
-            if (contacto.getAlias().equalsIgnoreCase(alias)) {
-                // esta función devuelve true si se eliminó el teléfono y false si no se encontró el teléfono en el contacto
-                boolean eliminado = contacto.eliminarTelefono(numero);
-                if (eliminado) {
-                    System.out.println("Teléfono " + numero + " eliminado del contacto " + alias);
-                } else {
-                    System.out.println("No se encontró el teléfono " + numero + " en el contacto " + alias);
+        for (int i = 0; i < listaContacto.size(); i++) {
+            if (listaContacto.get(i).getAlias().equalsIgnoreCase(alias)) {
+                ArrayList<Telefono> telefonos = listaContacto.get(i).getListaTelefonos();
+                for (int j = 0; j < telefonos.size(); j++) {
+                    if (telefonos.get(j).getNumeroTelefonico().equals(numero)) {
+                        telefonos.remove(j);
+                        System.out.println("Se eliminó correctamente el número del contacto: " + alias);
+                        return true;
+                    }
                 }
-                return eliminado;
+                System.out.println("No se encontró el teléfono " + numero + " en el contacto " + alias);
+                return false;
             }
         }
         System.out.println("No se encontró el contacto con alias " + alias);

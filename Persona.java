@@ -6,17 +6,22 @@
 
 // Clase persona con 4 atributos para definir un contacto solo tiene los metodos get,set,toString
 //  y un constructor para ser invocado cuando se inicialice.
+import java.util.regex.Pattern;
+
 public class Persona{
     // Atributos de clase con valores por defecto
     private String nombre;
     private String apellido;
     private char sexo;
     private String alias;
+
+    // expresiones regulares para validar el formato de correo y telefono
+    private static final Pattern regexSexo = Pattern.compile("^[MF]$");
     // Constructor de la clase
     public Persona(String nombre, String apellido, char sexo, String alias){
        this.nombre = nombre;
        this.apellido = apellido;
-       this.sexo = sexo;
+       setSexo(sexo);
        this.alias = alias;
     }
     public String getAlias() {
@@ -42,7 +47,11 @@ public class Persona{
         return sexo;
     }
     public void setSexo(char sexo) {
-        this.sexo = sexo;
+        if (regexSexo.matcher(String.valueOf(sexo)).matches()) {
+            this.sexo = sexo;
+        } else {
+            throw new IllegalArgumentException("Sexo inválido. Debe ser 'M' o 'F'.");
+        }
     }
     @Override
     public String toString() {

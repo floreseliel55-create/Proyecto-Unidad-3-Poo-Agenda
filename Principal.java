@@ -18,19 +18,10 @@ public class Principal {
 
 // CONTACTOS DE PRUEBA
 Contacto c1 = new Contacto("Juan", "Perez", 'M', "juanp", "juan@gmail.com");
-c1.agregarTelefono(new Telefono('M', "+52", "6671234567"));
-
 Contacto c2 = new Contacto("Maria", "Lopez", 'F', "marial", "maria@hotmail.com");
-c2.agregarTelefono(new Telefono('F', "+52", "6679876543"));
-
 Contacto c3 = new Contacto("Carlos", "Ramirez", 'M', "carlosr", "carlos@gmail.com");
-c3.agregarTelefono(new Telefono('M', "+52", "6671112233"));
-
 Contacto c4 = new Contacto("Ana", "Torres", 'F', "anat", "ana@yahoo.com");
-c4.agregarTelefono(new Telefono('F', "+52", "6674445566"));
-
 Contacto c5 = new Contacto("Luis", "Gomez", 'M', "luisg", "luis@gmail.com");
-c5.agregarTelefono(new Telefono('M', "+52", "6677778899"));
 
 // Agregar a la agenda
 agenda.agregarContacto(c1);
@@ -38,6 +29,13 @@ agenda.agregarContacto(c2);
 agenda.agregarContacto(c3);
 agenda.agregarContacto(c4);
 agenda.agregarContacto(c5);
+
+// Agregar teléfonos desde la agenda
+agenda.agregarTelefonoAContacto("juanp", new Telefono('M', "+52", "6671234567"));
+agenda.agregarTelefonoAContacto("marial", new Telefono('F', "+52", "6679876543"));
+agenda.agregarTelefonoAContacto("carlosr", new Telefono('M', "+52", "6671112233"));
+agenda.agregarTelefonoAContacto("anat", new Telefono('F', "+52", "6674445566"));
+agenda.agregarTelefonoAContacto("luisg", new Telefono('M', "+52", "6677778899"));
 
         int opcion;
 
@@ -106,7 +104,7 @@ agenda.agregarContacto(c5);
             if (agenda.agregarCorreoAContacto(aliasCorreo, nuevoCorreo)) {
                 System.out.println("Correo agregado");
             } else {
-                System.out.println("No se encontró contacto");
+                System.out.println("No se encontró contacto o el correo es inválido");
             }
             break;
             case 5:
