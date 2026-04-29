@@ -22,7 +22,6 @@ public class Contacto extends Persona {
         super(nombre, apellido, sexo, alias);
         this.listaTelefonos = new ArrayList<>();
         setCorreo(correo);
-        setlistaTelefonos(listaTelefonos);
     }
 
     public String getCorreo() {
