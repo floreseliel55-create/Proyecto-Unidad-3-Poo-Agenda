@@ -22,6 +22,7 @@ public class Persona{
        this.nombre = nombre;
        this.apellido = apellido;
        setSexo(sexo);
+
        this.alias = alias;
     }
     public String getAlias() {

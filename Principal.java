@@ -123,7 +123,7 @@ agenda.agregarTelefonoAContacto("luisg", new Telefono('M', "+52", "6677778899"))
             Telefono tel = new Telefono(tipoTel, clave, numero);
 
             if (agenda.agregarTelefonoAContacto(aliasTel, tel)) {
-                System.out.println("Teléfono agregado");
+                System.out.println("El teléfono no está repetido ");
             } else {
             System.out.println("No se encontró contacto");
             }
